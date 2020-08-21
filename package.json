@@ -1,0 +1,16 @@
+{
+  "name": "role-nickname",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon src/index.js"
+  },
+  "author": "Franciszek Łopuszański",
+  "license": "BSD-4-Clause",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  }
+}
