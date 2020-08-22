@@ -17,7 +17,7 @@ var rolesId = {
     '737023798364209223': "『MegaYT』",
     '673643875876995092': "『YT』",
     '722860026213171351': "『MiniYT』",
-    '722860026213171351': "『P』",
+    '713401336003297310': "『P』",
     '637393095335477273': "『W』",
     'else': ""
 }
@@ -68,20 +68,6 @@ client.on("guildMemberUpdate", function(oldMember, newMember){
             }
         }
     }
-
-
-    /*
-    var userRoles = newMember['_roles'];
-
-    for(let role in rolesId){
-        if(userRoles.includes(role)){
-            if (!newMember.guild.me.hasPermission('MANAGE_NICKNAMES')){
-                return console.log('I don\'t have permission to change your nickname!');
-            }
-
-            return newMember.setNickname(`${rolesId[role]}${newMember['user']['username']}`);
-        }
-    }*/
 });
 
 client.login(token);
