@@ -1,0 +1,9 @@
+{
+    "RolesPrefix": {
+        "711869767862190123": "『O』",
+        "roleId": "rolePrefix",
+        "else": ""
+    },
+    "MandatoryPrefix": true,
+    "NumberOfPrefixs": 1
+}

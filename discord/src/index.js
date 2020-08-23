@@ -1,26 +1,21 @@
 //https://discord.com/api/oauth2/authorize?client_id=744705982499782676&permissions=201403392&scope=bot
 
 const { token, debug_mode } = require('./configs/config.js');
+const { loadConfig, saveConfig, deleteConfig} = require('./handlers/Config.handler.js')
 
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-var rolesId = {
-    '711869767862190123': "『O』",
-    '736569171193626654': "『CO』",
-    '743553774144061590': "『HA』",
-    '637391745122041936': "『A』",
-    '637391148834488350': "『T』",
-    '637391743398182912': "『M』",
-    '722873873183539331': "『S』",
-    '737023798364209223': "『MegaYT』",
-    '673643875876995092': "『YT』",
-    '722860026213171351': "『MiniYT』",
-    '713401336003297310': "『P』",
-    '637393095335477273': "『W』",
-    'else': ""
-}
+const CommandHandler = require('./handlers/Command.handler.js');
+const EventHandler = require('./handlers/Event.handler.js');
+
+CommandHandler(client);
+EventHandler(client);
+
+client.on('ready', () => {
+    console.log('I am ready!');
+});
 
 function predictRole(userRoles, rolesPrefixs){
     for(let role in rolesPrefixs){
@@ -31,14 +26,13 @@ function predictRole(userRoles, rolesPrefixs){
     return(rolesPrefixs['else']);
 }
 
-client.on('ready', () => {
-    console.log('I am ready!');
-});
-
 client.on("guildMemberUpdate", function(oldMember, newMember){
     if (!newMember.guild.me.hasPermission('MANAGE_NICKNAMES')){
         return console.log('No Permision: MANAGE_NICKNAMES');
     }
+
+    let config = JSON.parse(loadConfig('637278766619557930'));
+    let rolesId = config['RolesPrefix']
     
     let nickname = newMember['nickname']
     if(newMember['nickname']== null){
