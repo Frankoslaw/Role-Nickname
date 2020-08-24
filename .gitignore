@@ -1,0 +1,4 @@
+discord/.env
+discord/node_modules/
+discord/src/configs/servers/*
+!discord/src/configs/servers/template.config.json
