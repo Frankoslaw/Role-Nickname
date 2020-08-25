@@ -1,0 +1,4 @@
+.env
+node_modules/
+src/configs/servers/*
+!src/configs/servers/template.config.json
